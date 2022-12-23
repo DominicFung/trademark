@@ -1,23 +1,18 @@
-import fs from 'fs'
-import { join } from 'path'
-import readline from 'readline'
+import { words } from './source.json'
 
+export default class TM {
+  constructor() { Object.assign(this) }
 
-const source = join(__dirname, 'source.txt')
-
-export async function isTrademarked(s: string):Promise<boolean> {
-  const rl = readline.createInterface({
-    input: fs.createReadStream(source),
-    output: process.stdout,
-    terminal: false
-  })
-
-  for await (const line of rl) {
-    if (s.toLowerCase() === line.toLowerCase()) return true
+  isTrademarked(s: string):boolean {
+    return words.includes(s.toLowerCase())
   }
-  return false
-}
 
-export default {
-  isTrademarked
+  hasTrademarkWords(s: string):boolean {
+    let st = s.split(/ *" *| *' *|'s |\n|\r|\n\r| /g)
+    console.log(st)
+    for (const v of st) {
+      if (words.includes(v.toLowerCase())) return true
+    }
+    return false
+  }
 }
