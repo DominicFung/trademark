@@ -43,24 +43,39 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "chai": "^4.3.7",
+    "conventional-changelog-eslint": "^3.0.9",
     "mocha": "^10.2.0",
     "npm-packlist": "^7.0.4",
     "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1"
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
-      ["@semantic-release/commit-analyzer", {
-        "preset": "eslint",
-        "releaseRules": [
-          { "subject": "*", "release": "patch" },
-          { "scope": "no-release", "release": false }
-        ],
-        "parserOpts": {
-          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "eslint",
+          "releaseRules": [
+            {
+              "subject": "*",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
         }
-      }],
+      ],
       "@semantic-release/release-notes-generator"
     ]
   },
