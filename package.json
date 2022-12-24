@@ -76,10 +76,13 @@
           }
         }
       ],
-      "@semantic-release/release-notes-generator"
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm"
     ]
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
   }
 }
