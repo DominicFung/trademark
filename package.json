@@ -49,7 +49,20 @@
     "ts-node": "^10.9.1"
   },
   "release": {
-    "branches": ["main"]
+    "branches": ["main"],
+    "plugins": [
+      ["@semantic-release/commit-analyzer", {
+        "preset": "eslint",
+        "releaseRules": [
+          { "subject": "*", "release": "patch" },
+          { "scope": "no-release", "release": false }
+        ],
+        "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+        }
+      }],
+      "@semantic-release/release-notes-generator"
+    ]
   },
   "publishConfig": {
     "access": "public"
