@@ -1,6 +1,6 @@
 {
   "name": "@domfung/trademark",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "",
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
@@ -10,19 +10,20 @@
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "prepack": "npm run build",
-    "test": "mocha"
+    "test": "mocha",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DominicFung/tm-filter.git"
+    "url": "https://github.com/DominicFung/trademark.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DominicFung/tm-filter/issues"
+    "url": "https://github.com/DominicFung/trademark/issues"
   },
-  "homepage": "https://github.com/DominicFung/tm-filter#readme",
+  "homepage": "https://github.com/DominicFung/trademark#readme",
   "exports": {
     ".": {
       "import": {
@@ -44,6 +45,13 @@
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "npm-packlist": "^7.0.4",
+    "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1"
+  },
+  "release": {
+    "branches": ["main"]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
