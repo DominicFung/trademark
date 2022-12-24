@@ -1,4 +1,4 @@
-import source from './source.json'
+import source from './source'
 
 export default class TM {
   constructor() { Object.assign(this) }
