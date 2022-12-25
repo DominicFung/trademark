@@ -28,16 +28,16 @@ describe('isTrademarked', () => {
   })
 })
 
-describe('hasTrademarkWords', () => {
+describe('getTrademarks', () => {
   it('empty string should return false', () => {
-    assert.isFalse(tm.hasTrademarkWords(""))
+    assert.deepEqual(tm.getTrademarks(""), [])
   })
 
   it('"Pikachu wearing a santa hat" has trademark in it.', () => {
-    assert.isTrue(tm.hasTrademarkWords("Pikachu wearing a santa hat"))
+    assert.deepEqual(tm.getTrademarks("Pikachu wearing a santa hat"), ["Pikachu"])
   })
 
   it('"monstera as a cartoon" does NOT have a trademarkin it.', () => {
-    assert.isFalse(tm.hasTrademarkWords("monstera as a cartoon"))
+    assert.deepEqual(tm.getTrademarks("monstera as a cartoon"), [])
   })
 })
